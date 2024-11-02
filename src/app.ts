@@ -22,15 +22,15 @@ app.use(
       // httpOnly: true,
     },
     secret: "cookie session secret",
- /*    resave: false,
-    saveUninitialized: false */,
+    // resave: false,
+    // saveUninitialized: false
 
     store: new PrismaSessionStore(new PrismaClient(), {
       checkPeriod: 2 * 60 * 1000, //ms
       dbRecordIdIsSessionId: true,
       dbRecordIdFunction: undefined,
     }),
-  }),
+  })
 );
 
 app.use(passport.session());
@@ -40,7 +40,7 @@ app.use(
   cors({
     credentials: true,
     origin: ["http://localhost:5173", process.env.FRONTEND_URL as string],
-  }),
+  })
 );
 app.use(morgan("dev"));
 
