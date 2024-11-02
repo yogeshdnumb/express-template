@@ -93,7 +93,7 @@ passport.use(
             authProvider: "github",
             authId: profile.id,
             profilePic: profile._json.avatar_url,
-            email: profile?.email[0] || "",
+            email: "",
           },
         });
         done(null, newUser);
