@@ -16,10 +16,15 @@ import passport from "passport";
 export const app = express();
 app.use(
   session({
-    cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 },
+    cookie: {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+    },
     secret: "cookie session secret",
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
+
     store: new PrismaSessionStore(new PrismaClient(), {
       checkPeriod: 2 * 60 * 1000, //ms
       dbRecordIdIsSessionId: true,
