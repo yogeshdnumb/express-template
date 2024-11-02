@@ -24,13 +24,18 @@ app.use(
       dbRecordIdIsSessionId: true,
       dbRecordIdFunction: undefined,
     }),
-  })
+  }),
 );
 
 app.use(passport.session());
 app.use(compression());
 // app.use(helmet());
-app.use(cors({ credentials: true, origin: ["http://localhost:5173"] }));
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:5173", "https://yogisite.netlify.app"],
+  }),
+);
 app.use(morgan("dev"));
 
 app.use("/", indexRouter);
