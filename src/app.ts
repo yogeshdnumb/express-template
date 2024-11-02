@@ -7,6 +7,7 @@ import session from "express-session";
 import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 import { PrismaClient } from "@prisma/client";
 import "./config/passport.config";
+import "dotenv/config";
 
 import indexRouter from "./routers/index.router";
 import authRouter from "./routers/auth.router";
@@ -33,7 +34,7 @@ app.use(compression());
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:5173", "https://yogisite.netlify.app"],
+    origin: ["http://localhost:5173", process.env.FRONTEND_URL as string],
   }),
 );
 app.use(morgan("dev"));
