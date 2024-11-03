@@ -32,7 +32,7 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID as string,
       clientSecret: GOOGLE_CLIENT_SECRET as string,
-      callbackURL: "/auth/google/redirect",
+      callbackURL: `${process.env.BACKEND_URL}/auth/google/redirect`,
     },
     async (accessToken, refreshToken, profile, done) => {
       // console.log("-----> google strategy callback fn called");
@@ -67,7 +67,7 @@ passport.use(
     {
       clientID: GITHUB_CLIENT_ID as string,
       clientSecret: GITHUB_CLIENT_SECRET as string,
-      callbackURL: "/auth/github/redirect",
+      callbackURL: `${process.env.BACKEND_URL}/auth/github/redirect`,
     },
     async (
       accessToken: string,
