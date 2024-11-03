@@ -14,11 +14,17 @@ import authRouter from "./routers/auth.router";
 import passport from "passport";
 
 export const app = express();
+app.use((req, res, next) => {
+  {
+    console.log(process.env.NODE_ENV);
+    next();
+  }
+});
 app.use(
   session({
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      secure: process.env.NODE_ENV === "production",
+      secure: process.env.NODE_ENV == "production" ? true : false,
       httpOnly: true,
       sameSite: "none",
     },
