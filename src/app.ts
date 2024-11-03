@@ -18,8 +18,9 @@ app.use(
   session({
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      // secure: process.env.NODE_ENV === "production",
-      // httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "none",
     },
     secret: "cookie session secret",
     // resave: false,
@@ -30,7 +31,7 @@ app.use(
       dbRecordIdIsSessionId: true,
       dbRecordIdFunction: undefined,
     }),
-  })
+  }),
 );
 
 app.use(passport.session());
@@ -40,7 +41,7 @@ app.use(
   cors({
     credentials: true,
     origin: ["http://localhost:5173", process.env.FRONTEND_URL as string],
-  })
+  }),
 );
 app.use(morgan("dev"));
 
