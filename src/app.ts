@@ -27,7 +27,7 @@ app.use(
       // httpOnly: auto,
       // secure: true,
 
-      sameSite: "none",
+      // sameSite: "none",
     },
     secret: "cookie session secret",
     resave: false,
