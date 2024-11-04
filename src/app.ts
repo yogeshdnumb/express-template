@@ -50,7 +50,11 @@ app.use(compression());
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:5173", process.env.FRONTEND_URL as string],
+    origin: [
+      "http://localhost:5173",
+      process.env.FRONTEND_URL as string,
+      "https://yogisite.netlify.app",
+    ],
   }),
 );
 app.use(morgan("dev"));
