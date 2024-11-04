@@ -33,8 +33,8 @@ app.use(
       sameSite: "none",
     },
     secret: "cookie session secret",
-    resave: false,
-    saveUninitialized: false,
+    // resave: false,
+    // saveUninitialized: false,
 
     store: new PrismaSessionStore(new PrismaClient(), {
       checkPeriod: 2 * 60 * 1000, //ms
