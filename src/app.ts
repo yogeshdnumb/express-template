@@ -15,17 +15,18 @@ import passport from "passport";
 
 export const app = express();
 app.use((req, res, next) => {
-  {
-    console.log(process.env.NODE_ENV);
-    next();
-  }
+  // res.cookie("ngrok-skip-browser-warning", "true");
+  console.log(process.env.NODE_ENV);
+  next();
 });
 app.use(
   session({
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV == "development" ? false : true,
-      httpOnly: true,
+      // httpOnly: auto,
+      // secure: true,
+
       sameSite: "none",
     },
     secret: "cookie session secret",
