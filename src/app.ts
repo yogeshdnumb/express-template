@@ -8,15 +8,18 @@ import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 import { PrismaClient } from "@prisma/client";
 import "./config/passport.config";
 import "dotenv/config";
+import cookieParser from "cookie-parser";
 
 import indexRouter from "./routers/index.router";
 import authRouter from "./routers/auth.router";
 import passport from "passport";
 
 export const app = express();
+app.use(cookieParser());
 app.use((req, res, next) => {
   // res.cookie("ngrok-skip-browser-warning", "true");
   console.log(process.env.NODE_ENV);
+  console.log(req.cookies);
   next();
 });
 app.use(

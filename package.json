@@ -35,6 +35,7 @@
     "@prisma/client": "5.21.1",
     "@quixo3/prisma-session-store": "^3.1.13",
     "compression": "^1.7.5",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^5.0.1",
