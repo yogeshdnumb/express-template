@@ -28,7 +28,7 @@ app.use(
       maxAge: 7 * 24 * 60 * 60 * 1000,
       // secure: process.env.NODE_ENV == "development" ? false : true,
       // httpOnly: auto,
-      // secure: true,
+      secure: true,
 
       sameSite: "none",
     },
