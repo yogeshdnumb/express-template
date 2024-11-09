@@ -15,7 +15,7 @@ import authRouter from "./routers/auth.router";
 import passport from "passport";
 
 export const app = express();
-app.use(cookieParser());
+app.use(cookieParser("cookie session secret"));
 app.use((req, res, next) => {
   // res.cookie("ngrok-skip-browser-warning", "true");
   console.log(process.env.NODE_ENV);
